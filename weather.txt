@@ -4,3 +4,4 @@ Mostly Sunny 81 degrees August 27
 Partly Cloudy 75 degrees August 28
 Sunny 77 degrees August 29
 Sunny 81 degrees August 30
+Sunny  57 degrees August 31

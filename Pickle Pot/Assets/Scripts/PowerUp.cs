@@ -2,14 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
-    public int score;
+    public int value;
+    public UnityEvent powerUpEvent;
     
     private void OnTriggerEnter(Collider other)
     {
-        score++;
-        print(score);
+        value++;
+        print(value);
+        powerUpEvent.Invoke();
     }
 }

@@ -13,6 +13,7 @@ public class MoverScript : MonoBehaviour
     public string password = "password";
 
     public string playerName = "Emege";
+    public float moveSpeed;
 
     public int points = 0;
     // Start is called before the first frame update

@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class AmmoPowerUp : MonoBehaviour
+public class UnityEvents : MonoBehaviour
 {
-    public int ammo;
+    public UnityEvent myUnityEvent;
 
     private void OnTriggerEnter(Collider other)
     {
-        ammo++;
-        print(ammo);
+        myUnityEvent.Invoke();
     }
 }
 

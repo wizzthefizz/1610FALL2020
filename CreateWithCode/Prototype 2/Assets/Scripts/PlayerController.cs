@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
+    public float speed = 10;
     public float xRange = 10;
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +19,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Launch a projectile from the player
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * (horizontalInput * Time.deltaTime * -xRange));
+        transform.Translate(Vector3.right * (horizontalInput * Time.deltaTime * speed));
         // Keep the player inbounds
         if (transform.position.x < -xRange)
         {

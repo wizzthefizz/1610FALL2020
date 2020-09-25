@@ -1,45 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class MoverScript : MonoBehaviour
 {
-    public float speed = 3f;
-    public float x, y, z;
-    public int score = 100;
-
-    public float health;
-
-    public string password = "password";
-
-    public string playerName = "Emege";
-    public float moveSpeed;
-
-    public int points = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log(message: "Hello World!");
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        var vInput = speed*Input.GetAxis("Vertical")*Time.deltaTime;
-        var hInput = speed*Input.GetAxis("Horizontal")*Time.deltaTime;
-        var z = 0;
-        transform.Translate(hInput, vInput,0);
-    }
-
-    public void Up()
-    {
-        transform.Translate(0, speed, 0);
-    }
-
-    public void Down()
-    {
-        transform.Translate(0,-speed,0);
-    }
+    public CharacterController controller;
+    public float moveSpeed = 5f, gravity = -9.81f, jumpForce = 10f;
     
+    private Vector3 moveDirection;
+    private float yDirection;
+
+    private void Update()
+    {
+        var moveSpeedInput = moveSpeed * Input.GetAxis("Horizontal");
+        moveDirection.Set(moveSpeedInput,yDirection,0);
+
+        yDirection += gravity * Time.deltaTime;
+
+        if (controller.isGrounded && moveDirection.y < 0 )
+        {
+            yDirection = -1f;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            yDirection = jumpForce;
+        }
+
+        var movement = moveDirection * Time.deltaTime;
+        controller.Move(movement);
+    }
 }

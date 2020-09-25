@@ -154,16 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f61a3acca65e45b79d9b09b97660701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  x: 0
-  y: 0
-  z: 0
-  score: 100
-  health: 0
-  password: password
-  playerName: Emege
+  controller: {fileID: 109712277}
   moveSpeed: 0
-  points: 0
+  gravity: -9.81
+  jumpForce: 10
 --- !u!65 &109712273
 BoxCollider:
   m_ObjectHideFlags: 0

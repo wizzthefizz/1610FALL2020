@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
+﻿
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
+[RequireComponent(typeof(CharacterController))]
 public class MoverScript : MonoBehaviour
 {
-    public CharacterController controller;
+    private CharacterController controller;
     public float moveSpeed = 5f, gravity = -9.81f, jumpForce = 10f;
     
     private Vector3 moveDirection;
     private float yDirection;
+
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
     private void Update()
     {

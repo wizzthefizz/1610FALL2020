@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerRb.centerOfMass = centerOfMass.transform.position;
     }
-
+    
 
     // Fixed Update is called once per physics frame
     void FixedUpdate()

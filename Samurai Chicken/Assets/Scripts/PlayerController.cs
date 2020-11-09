@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -10,6 +11,15 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection;
     private float yDirection;
+
+    private Animator playerAnim;
+
+
+    private void Start()
+    {
+        playerAnim = GetComponent<Animator>();
+    }
+
     void Update()
     {
         var moveSpeedInput = moveSpeed * Input.GetAxis("Horizontal");
@@ -25,8 +35,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             yDirection = jumpForce;
+            playerAnim.SetTrigger("chicken_with_animation_2");
         }
 
         controller.Move(moveDirection * Time.deltaTime);
+
     }
 }

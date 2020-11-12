@@ -16,6 +16,7 @@ public class GameSwitch : ScriptableObject
     public GameStates currentGameState = GameStates.Starting;
 
     public void RunCurrentState()
+    
     {
         switch (currentGameState)
         {

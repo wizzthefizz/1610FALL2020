@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7442079b740742c8a8e25346646eeb4, type: 3}
-  m_Name: GameSwitchObject
+  m_Script: {fileID: 11500000, guid: 4861638e3de904d4ea5bd77f2a792462, type: 3}
+  m_Name: DefenseSwitch
   m_EditorClassIdentifier: 
-  currentGameState: 1
+  currentDefense: 0

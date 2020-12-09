@@ -4,20 +4,23 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    private Rigidbody playerRb;
     public CharacterController controller;
     public float moveSpeed = 3f, gravity = -9.81f, jumpForce = 30f;
 
     private Vector3 moveDirection;
     private float yDirection;
 
-    private Animator playerAnim;
+    public Animator playerAnim;
 
 
     private void Start()
     {
-        playerAnim = GetComponent<Animator>();
+       playerRb = GetComponent<Rigidbody>();
+       playerAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,7 +29,7 @@ public class PlayerController : MonoBehaviour
         moveDirection.Set(moveSpeedInput, yDirection,0);
 
         yDirection += gravity * Time.deltaTime;
-
+        
         if (controller.isGrounded && moveDirection.y < 0)
         {
             yDirection = -1f;
@@ -35,10 +38,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             yDirection = jumpForce;
-            playerAnim.SetTrigger("chicken_with_animation_2");
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            GetComponent<Animation>().Play("Chicken2");
         }
 
-        controller.Move(moveDirection * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            GetComponent<Animation>().Play("Chicken2");
+        }
+        
+        var movement = moveDirection * Time.deltaTime;
+        controller.Move(movement);
 
     }
 }

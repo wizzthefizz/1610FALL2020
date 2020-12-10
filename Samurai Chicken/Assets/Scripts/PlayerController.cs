@@ -39,14 +39,14 @@ public class PlayerController : MonoBehaviour
         {
             yDirection = jumpForce;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            GetComponent<Animation>().Play("Chicken2");
+            //GetComponent<Animation>().Play("Chicken2");
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            GetComponent<Animation>().Play("Chicken2");
+            //GetComponent<Animation>().Play("Chicken2");
         }
         
         var movement = moveDirection * Time.deltaTime;

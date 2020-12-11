@@ -1553,8 +1553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8831979145015617224}
-  moveSpeed: 5
-  gravity: -9.73
+  moveSpeed: 8
+  gravity: -15
   jumpForce: 30
   playerAnim: {fileID: 0}
 --- !u!4 &5206005214784864302
